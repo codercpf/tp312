@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+    <table border="1" width="500" align="center">
+        <tr>
+            <th>id</th>
+            <th>username</th>
+            <th>sex</th>
+            <th>操作</th>
+        </tr>
+        <volist name="data" id="vo">
+            <tr>
+                <td><{$vo.id}></td>
+                <td><{$vo.username}></td>
+                <td><{$vo.sex}></td>
+                <td><a href="/tp312/index.php/User/del?id=<{$vo.id}>">删除</a> |
+                    <a href="/tp312/index.php/User/modify/id/<{$vo.id}>">修改</a></td>
+            </tr>
+        </volist>
+    </table>
+</body>
+</html>

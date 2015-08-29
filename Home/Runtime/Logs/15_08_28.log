@@ -3873,3 +3873,9 @@ INFO: [ view_end ] --START--
 INFO: Run ShowPageTrace Behavior [ RunTime:0.001000s ]
 INFO: [ view_end ] --END-- [ RunTime:0.003000s ]
 
+[ 2015-08-28T22:31:09+08:00 ] ERR: (ThinkException) Access denied for user 'root'@'localhost' (using password: YES)
+[ 2015-08-28T22:32:04+08:00 ] ERR: (ThinkException) Access denied for user 'root'@'localhost' (using password: YES)
+[ 2015-08-28T22:32:41+08:00 ] ERR: (ThinkException) Access denied for user 'root'@'localhost' (using password: YES)
+[ 2015-08-28T22:35:26+08:00 ] ERR: (ThinkException) Access denied for user 'root'@'localhost' (using password: YES)
+[ 2015-08-28T22:42:44+08:00 ] ERR: (ThinkException) Access denied for user 'root'@'localhost' (using password: YES)
+[ 2015-08-28T22:49:52+08:00 ] ERR: (ThinkException) 模板不存在[./Home/Tpl/User/index.html]
