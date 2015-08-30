@@ -34,10 +34,13 @@ class IndexAction extends Action
 //        $m->where('id=2')->delete();
 
         // // // // // //更新数据           ------------ 返回值是受影响的行数
-         $data['id']=1;
+
+
+/*        $data['id']=1;
          $data['username']='Lili';
          $count = $m->save($data);                   //save()函数要传入一个修改过的参数。
-         echo $count;
+         echo $count;*/
+
 
 //        $name='常鹏飞';
 
@@ -45,12 +48,99 @@ class IndexAction extends Action
 
 //        $this->assign('data',$arr);
 
+//        $this->display('./Public/error.html','utf8', 'text/html');
+
+        /*
+        $content=$this->fetch('New:new');
+        dump($content);
+        $content=str_replace('h1','i',$content);
+        $this->show($content);
+        */
+
+//        $this->assign('name', '常鹏飞');
+        $this->name='常鹏飞2';
         $this->display();
+
     }
 
     public function showself()
     {
 //        echo "欢迎你".$_GET['name']." 你的年龄".$_GET['age'];
+
+        $m=M('User');
+//        $m->select();
+
+//        echo $m->where('id=2')->getField('username');
+
+        // 字符串查询
+        /*$arr=$m->where("sex=0 and username='张宝慧'")->find();*/
+
+
+        //数组查询
+//        $data['sex']=0;
+//        $data['username']='张宝慧';
+//        $data['_logic']='or';
+//        $arr=$m->where($data)->find();
+
+        //表达式查询
+        /*$data['id']=array('neq',4);          //id大于4的所有查询
+        $arr=$m->where($data)->select();*/
+
+        //模糊查询-----------notlike 中间没有空格
+
+        /*
+        //单条件查询
+        $data['username']=array('like','%张%');
+        //多条件查询——OR
+        $data['username']=array('like',array('%张%','%常%'));
+        //多条件查询——AND
+        $data['username']=array('like',array('%张%','%常%'),'and');
+        */
+
+        /*
+         //区间查询--------------not between中间有空格
+//        $data['id']=array('between', array(4,6));
+        $data['id']=array('not between', array(4,6));
+        */
+
+        /*
+        //In查询  --------------not in中间有空格
+        $data['id']=array('not in',array(1,3,5));
+        */
+
+
+        //区间查询
+//        $data['id']=array(array('gt',5),array('lt',7));     //默认AND方式
+//        $data['id']=array(array('gt',5),array('lt',3),'or');    // Or方式
+
+//        $data['username']=array(array('like','%张%'),array('like','%慧%'),'常飞', array('like','%于%'),'or');  //复杂例子
+/*
+        $arr=$m->where($data)->select();
+        var_dump($arr);*/
+
+
+        //统计查询
+        /*
+        $data['username']='常飞';
+        $a=$m->where($data)->count();
+        $c=$m->where("username like '%张%'")->count();
+        echo $a."<br/>".$c;*/
+
+        /*
+        $c=$m->sum('id');       //count、max、min、avg、sum各个统计操作
+        echo $c;
+        */
+
+
+        //SQL直接查询
+                // Query方式用于读取数据，成功放回数据结果集，失败返回boolean false
+                $result=$m->query("select * from tp_user where id>3");
+                var_dump($result);
+
+        // Execute用于更新和插入数据    成功放回影响行数，失败返回boolean false，字段名称不加单引号。
+//        $result2=$m->execute("INSERT INTO `tp_user` (username,sex) VALUES ('cpf5',1)");
+        var_dump($result2);
+
 
         $this->display();
     }
